@@ -14,14 +14,6 @@ import AppRouter from './routers/AppRouter';
 
 const store = storeConfig();
 
-store.dispatch(addExpense({ description: 'Water Bill', note: 'Water bill payment for the month of April', amount: 50000, createdAt: 1000 }));
-store.dispatch(addExpense({ description: 'Gas Bill', note: 'Gas bill payment for the month of April', amount: 10000, createdAt: 2000 }));
-store.dispatch(addExpense({ description: 'Rent', note: 'Rent payment for the month of April', amount: 95000, createdAt: 3000 }));
-
-const state = store.getState();
-const visibleExpenses = selectExpenses(state.expenses, state.filters);
-console.log(visibleExpenses);
-
 const app = (
   <Provider store={store}>
     <AppRouter />
