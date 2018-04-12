@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import numeral from 'numeral';
 
 import selectExpenses from '../selectors/selectExpenses';
-import expensesTotal from '../selectors/expensesTotal';
+import totalExpenses from '../selectors/totalExpenses';
 
 const ExpenseSummary = ({ expenseCount, expensesTotal }) => {
   const expenseWord = expenseCount === 1 ? 'expense' : 'expenses';
@@ -12,7 +12,7 @@ const ExpenseSummary = ({ expenseCount, expensesTotal }) => {
     <div>
       <h1>Viewing {expenseCount} {expenseWord} totalling {formattedTotal}</h1>
     </div>
-  )
+  );
 };
 
 const mapStateToProps = (state) => {
@@ -20,8 +20,8 @@ const mapStateToProps = (state) => {
 
   return {
     expenseCount: visibleExpenses.length,
-    expensesTotal: expensesTotal(visibleExpenses)
+    expensesTotal: totalExpenses(visibleExpenses),
   };
-}
+};
 
 export default connect(mapStateToProps)(ExpenseSummary);
